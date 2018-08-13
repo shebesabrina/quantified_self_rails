@@ -48,4 +48,16 @@ describe "Foods API" do
     expect(food.name).to_not eq(previous_name)
     expect(food.name).to eq("strawberry")
   end
+
+  it "can destroy a food item" do
+    food = create(:food)
+
+    expect(Food.count).to eq(1)
+
+    delete "/api/v1/foods/#{food.id}"
+
+    expect(response).to be_successful
+    expect(Food.count).to eq(0)
+    expect{Food.find(food.id)}.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
