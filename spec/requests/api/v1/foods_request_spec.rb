@@ -8,7 +8,7 @@ describe "Foods API" do
 
     expect(response).to be_successful
 
-    foods = JSON.parse(response.body)
+    foods = JSON.parse(response.body, symbolize_names: true)
     expect(foods.count).to eq(3)
 
     # expect(response.status).to eq(404)
@@ -19,7 +19,7 @@ describe "Foods API" do
 
     get "/api/v1/foods/#{id}"
 
-    food = JSON.parse(response.body)
+    food = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
     expect(food["id"]).to eq(id)
