@@ -17,11 +17,11 @@ describe "Foods API" do
   it "can get one food item by its id" do
     id = create(:food).id
 
-    get "/api/v1/items/#{id}"
+    get "/api/v1/foods/#{id}"
 
-    item = JSON.parse(response.body)
+    food = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(item["id"]).to eq(id)
+    expect(food["id"]).to eq(id)
   end
 end
