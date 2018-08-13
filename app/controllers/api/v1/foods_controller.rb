@@ -16,6 +16,10 @@ class Api::V1::FoodsController < ApplicationController
     render json: Food.update(params[:id], food_params)
   end
 
+  def destroy
+    Food.delete(params[:id])
+  end
+
   private
 
   def food_params
