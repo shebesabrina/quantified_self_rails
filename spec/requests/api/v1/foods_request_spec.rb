@@ -24,4 +24,15 @@ describe "Foods API" do
     expect(response).to be_successful
     expect(food["id"]).to eq(id)
   end
+
+  it "can create a new food item" do
+    food_params = { name: "strawberry", calories: 100 }
+
+    post "/api/v1/foods", params: {food: food_params}
+    food = Food.last
+
+    assert_response :success
+    expect(response).to be_successful
+    expect(food.name).to eq(food_params[:name])
+  end
 end
