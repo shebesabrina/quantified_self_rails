@@ -35,4 +35,17 @@ describe "Foods API" do
     expect(response).to be_successful
     expect(food.name).to eq(food_params[:name])
   end
+
+  it "can update an existing food item" do
+    id = create(:food).id
+    previous_name = Food.last.name
+    food_params = { name: "strawberry" }
+
+    put "/api/v1/foods/#{id}", params: {food: food_params}
+    food = Food.find_by(id: id)
+
+    expect(response).to be_successful
+    expect(food.name).to_not eq(previous_name)
+    expect(food.name).to eq("strawberry")
+  end
 end
