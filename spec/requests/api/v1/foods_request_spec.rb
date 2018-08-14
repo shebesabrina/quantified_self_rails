@@ -21,16 +21,9 @@ describe "Foods API" do
 
     get "/api/v1/foods/#{id}"
 
-<<<<<<< HEAD
-    food = JSON.parse(response.body, symbolize_names: true)
-
-    expect(response).to be_successful
-
-=======
     food = JSON.parse(response.body,  symbolize_names: true)
 
     expect(response).to be_successful
->>>>>>> master
     expect(food[:id]).to eq(id)
   end
 
