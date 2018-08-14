@@ -40,11 +40,11 @@ describe "Foods API" do
   end
 
   it "can update an existing food item" do
-    id = create(:food).id
+    params = { name: "strawberry" }
+    put '/api/v1/foods/8675309', params: params
+    expect(status).to eq(400)
 
-    # params = {}
-    # put "/api/v1/foods/#{id}", params: params
-    # expect(status).to eq(400)
+    id = create(:food).id
 
     previous_name = Food.last.name
     food_params = { name: "strawberry" }

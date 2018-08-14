@@ -15,12 +15,14 @@ class Api::V1::FoodsController < ApplicationController
     if food.save
       render json: food
     else
-      render status:400, json: {}
+      render status: 400, json: {}
     end
   end
 
   def update
     render json: Food.update(params[:id], food_params)
+  rescue
+    render status: 400, json: {}
   end
 
   def destroy
