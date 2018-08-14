@@ -22,7 +22,7 @@ describe "Foods API" do
     food = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-    expect(food["id"]).to eq(id)
+    expect(food[:id]).to eq(id)
   end
 
   it "can create a new food item" do
