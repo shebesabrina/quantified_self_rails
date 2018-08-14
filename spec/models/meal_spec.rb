@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Food, type: :model do
+RSpec.describe Meal, type: :model do
   describe 'Field validations' do
     it { should validate_presence_of(:name) }
   end
