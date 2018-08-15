@@ -33,4 +33,12 @@ describe 'Meals API' do
     foods = JSON.parse(response.body)
     expect(foods.count).to eq(breakfast.meal_foods.count)
   end
+
+  it 'creates a new meal id' do
+    post '/api/v1/meals/8675309/foods/8675309'
+
+    expect(status).to eq(404)
+
+    
+  end
 end
