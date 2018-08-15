@@ -30,6 +30,6 @@ module QuantifiedSelfRails
       end
     end
 
-    config.generator.system_tests = nil
+    config.generators.system_tests = nil
   end
 end
