@@ -10,7 +10,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-require 'rack/cors'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
@@ -22,13 +21,13 @@ module QuantifiedSelfRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    #
-    config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
+    config.api_only = true
+
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://quantified-self-fe.herokuapp.com/'
-        resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :create, :options]
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :path, :delete, :create, :options]
       end
     end
-    config.api_only = true
   end
 end
