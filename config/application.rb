@@ -23,12 +23,12 @@ module QuantifiedSelfRails
     config.load_defaults 5.2
     config.api_only = true
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: :any
-      end
-    end
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', headers: :any, methods: :any
+    #   end
+    # end
 
     config.generators.system_tests = nil
   end
