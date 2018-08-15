@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://shebesabrina.github.io/quantified-self-fe/'
+    origins 'https://qs-rails-1.herokuapp.com/'
 
     resource '*',
       headers: :any,
