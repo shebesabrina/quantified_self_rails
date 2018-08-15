@@ -22,11 +22,26 @@ module QuantifiedSelfRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    #
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins 'https://quantified-self-fe.herokuapp.com/'
+    #     resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :create, :options]
+    #   end
+    # end
 
-    config.middleware.insert_before 0, Rack::Cors do
+    require ::File.expand_path('../config/environment',  __FILE__)
+    run Rails.application
+
+    require 'rack/cors'
+    use Rack::Cors do
+
+      # allow all origins in development
       allow do
         origins 'https://quantified-self-fe.herokuapp.com/'
-        resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :create, :options]
+        resource '*',
+            :headers => :any,
+            :methods => [:get, :post, :delete, :put, :options]
       end
     end
     config.api_only = true
