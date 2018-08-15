@@ -1,4 +1,4 @@
-class Api::V1::FoodsController < ApplicationController
+class Api::V1::FoodsController < ApplicationController::API
 
   def index
     render json: Food.all
