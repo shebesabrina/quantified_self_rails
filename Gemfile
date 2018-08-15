@@ -39,6 +39,7 @@ group :development, :test do
   gem 'active_designer'
   gem 'factory_bot_rails'
   gem 'simplecov'
+  gem 'rack-cors', require: 'rack/cors'
 end
 
 group :development do
@@ -51,6 +52,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Added at 2018-08-14 09:59:19 -0600 by sabrinarobinson:
-gem "rack-cors", "~> 1.0"
