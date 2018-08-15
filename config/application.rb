@@ -29,21 +29,6 @@ module QuantifiedSelfRails
     #     resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :create, :options]
     #   end
     # end
-
-    require ::File.expand_path('../config/environment',  __FILE__)
-    run Rails.application
-
-    require 'rack/cors'
-    use Rack::Cors do
-
-      # allow all origins in development
-      allow do
-        origins 'https://quantified-self-fe.herokuapp.com/'
-        resource '*',
-            :headers => :any,
-            :methods => [:get, :post, :delete, :put, :options]
-      end
-    end
     config.api_only = true
   end
 end
